@@ -1,5 +1,7 @@
 # church-team
 
+> 이 저장소는 2026-11-19 기준 보관본입니다. 현재 코드와 유지보수는 비공개 [church-suite의 team 앱](https://github.com/hyunmibab/church-suite/tree/master/apps/team)에서 관리합니다. 기존 코드와 Git 이력은 보존합니다.
+
 CSV 참가자 명단을 업로드해 팀을 배정하고 결과를 수정하는 교회 행사 운영용 웹 도구입니다.
 
 ## 주요 기능
