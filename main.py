@@ -29,7 +29,7 @@ async def logo():
 
 @app.get("/", response_class=HTMLResponse)
 async def form_page(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request=request, name="index.html", context={"request": request})
 
 
 @app.post("/assign", response_class=HTMLResponse)
@@ -84,8 +84,9 @@ async def show_result(request: Request, token: str):
     if not data:
         return RedirectResponse("/", status_code=302)
     return templates.TemplateResponse(
-        "index.html",
-        {"request": request, **data}
+        request=request,
+        name="index.html",
+        context={"request": request, **data}
     )
 
 @app.get("/edit/{token}", response_class=HTMLResponse)
@@ -93,7 +94,7 @@ async def edit_page(request: Request, token: str):
     data = results_cache.get(token)
     if not data:
         return RedirectResponse("/", status_code=302)
-    return templates.TemplateResponse("edit.html", {"request": request, **data})
+    return templates.TemplateResponse(request=request, name="edit.html", context={"request": request, **data})
 
 @app.post("/update/{token}", response_class=RedirectResponse)
 async def update_data(request: Request, token: str):
